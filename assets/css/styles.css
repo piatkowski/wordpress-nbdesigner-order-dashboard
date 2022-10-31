@@ -1,0 +1,399 @@
+@charset "UTF-8";
+.notice {
+  display: none !important;
+}
+
+#nbdod * {
+  box-sizing: border-box;
+}
+#nbdod .filters {
+  max-width: 1000px;
+}
+#nbdod .filters label span {
+  font-size: 11px;
+  font-weight: 700;
+}
+#nbdod .filters input, #nbdod .filters select {
+  width: 100%;
+  display: block;
+  max-width: none;
+}
+#nbdod .filters .col {
+  display: block;
+  float: left;
+  padding: 0 5px 0 5px;
+}
+#nbdod .filters .col:first-of-type {
+  padding-left: 0;
+}
+#nbdod .filters .col:last-child {
+  padding-right: 0;
+}
+#nbdod .filters .row {
+  width: 100%;
+  padding: 5px 0 5px 0;
+}
+#nbdod .filters .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#nbdod .filters .nav {
+  margin-top: 19px;
+}
+#nbdod .filters .nav .prev {
+  float: left;
+  width: 15%;
+}
+#nbdod .filters .nav .next {
+  float: right;
+  width: 15%;
+}
+#nbdod .filters .nav .text {
+  float: left;
+  display: block;
+  text-align: center;
+  width: 70%;
+  height: 30px;
+  line-height: 30px;
+  font-weight: 700;
+}
+#nbdod .filters .filter-button {
+  display: block;
+  width: 100%;
+  margin-top: 19px;
+}
+#nbdod .filters .filter-button .dashicons {
+  margin-top: 4px;
+  transform-origin: center;
+}
+#nbdod .filters .filter-button[disabled] .dashicons-update {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+}
+#nbdod .wp-list-table {
+  margin-top: 20px;
+}
+#nbdod .wp-list-table thead td, #nbdod .wp-list-table thead th {
+  height: 50px;
+  vertical-align: middle;
+}
+#nbdod .wp-list-table tbody td, #nbdod .wp-list-table tbody th {
+  vertical-align: middle;
+}
+#nbdod .wp-list-table tr.active td, #nbdod .wp-list-table tr.active th {
+  background: #fff1d4;
+}
+#nbdod .wp-list-table .customer_note {
+  width: 100%;
+  font-size: 13px;
+}
+#nbdod .wp-list-table .dashicons-warning {
+  color: red;
+}
+#nbdod .wp-list-table .dashicons.cod {
+  color: #FFF;
+  margin-right: 10px;
+}
+#nbdod .wp-list-table .dashicons.cod::before {
+  background-color: orange;
+}
+#nbdod .wp-list-table .dashicons.paid {
+  color: #fff;
+  margin-right: 10px;
+}
+#nbdod .wp-list-table .dashicons.paid::before {
+  background-color: green;
+}
+#nbdod .wp-list-table .dashicons.not-paid {
+  color: #AAA;
+  margin-right: 10px;
+}
+#nbdod .wp-list-table .dashicons.cod::before, #nbdod .wp-list-table .dashicons.paid::before, #nbdod .wp-list-table .dashicons.not-paid::before {
+  border-radius: 50px;
+  padding: 1px;
+}
+#nbdod .wp-list-table .filter-sort .dashicons {
+  display: none;
+}
+#nbdod .wp-list-table .filter-sort.active.asc .sort-asc {
+  display: block;
+}
+#nbdod .wp-list-table .filter-sort.active.asc .sort-desc {
+  display: none;
+}
+#nbdod .wp-list-table .filter-sort.active.desc .sort-asc {
+  display: none;
+}
+#nbdod .wp-list-table .filter-sort.active.desc .sort-desc {
+  display: block;
+}
+#nbdod #Row_details {
+  background-color: #fff !important;
+}
+#nbdod #Row_details .col {
+  display: block;
+  float: left;
+  padding: 0 5px 0 5px;
+}
+#nbdod #Row_details .col:first-of-type {
+  padding-left: 0;
+}
+#nbdod #Row_details .col:last-child {
+  padding-right: 0;
+}
+#nbdod #Row_details .col .row {
+  padding: 0;
+  border: none;
+}
+#nbdod #Row_details .row {
+  width: 100%;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+#nbdod #Row_details .row.row-declined {
+  background-color: #fdeded;
+}
+#nbdod #Row_details .row.row-accepted {
+  background-color: #eefded;
+}
+#nbdod #Row_details .refunded {
+  display: block;
+  color: #a00;
+  white-space: nowrap;
+  margin-top: 0.5em;
+}
+#nbdod #Row_details .refunded::before {
+  font-family: Dashicons;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  text-indent: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  content: "\f171";
+  position: relative;
+  top: auto;
+  left: auto;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  line-height: 1em;
+}
+#nbdod #Row_details .attachment-thumbnail {
+  width: 50px;
+  height: 50px;
+}
+#nbdod #Row_details .button {
+  margin-right: 3px;
+}
+#nbdod #Row_details .buttons .button {
+  margin-bottom: 5px;
+}
+#nbdod #Row_details .buttons .button .dashicons {
+  margin-top: 4px;
+}
+#nbdod #Row_details .button-red {
+  background-color: #b12222;
+  color: #fff;
+  font-weight: 700;
+  border-color: #b12222;
+}
+#nbdod #Row_details .button-green {
+  background-color: #40b25e;
+  color: #fff;
+  font-weight: 700;
+  border-color: #40b25e;
+}
+#nbdod #Row_details .button-blue {
+  background-color: #2271b1;
+  color: #fff;
+  font-weight: 700;
+  border-color: #2271b1;
+}
+#nbdod #Row_details .button-gold {
+  background-color: #b29640;
+  color: #fff;
+  font-weight: 700;
+  border-color: #b29640;
+}
+#nbdod #Row_details img.nbd_preview {
+  vertical-align: middle;
+  max-width: 120px;
+  max-height: 120px;
+  transition: all 0.1s ease-in-out;
+}
+#nbdod #Row_details img.nbd_preview:hover {
+  cursor: zoom-in;
+}
+#nbdod #Row_details img.nbd_preview:active {
+  cursor: zoom-out;
+  transform: scale(3.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#nbdod #Row_details a.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+#nbdod #Row_details .select_pdf {
+  position: absolute;
+  display: none;
+  border: 1px solid #aaa;
+  background-color: #eee;
+  padding: 10px;
+  width: 200px;
+  overflow-x: scroll;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+#nbdod #Row_details .select_pdf .close {
+  text-align: right;
+}
+#nbdod #Row_details .select_pdf .close span {
+  cursor: pointer;
+}
+#nbdod #Row_details .select_pdf ul {
+  margin: 0;
+  padding: 0;
+}
+#nbdod #Row_details .select_pdf ul li {
+  border-bottom: 1px solid #cecece;
+  padding-bottom: 5px;
+}
+#nbdod #Row_details .select_pdf ul li:last-child {
+  border: none !important;
+  padding-bottom: 0;
+}
+#nbdod #Row_details .remove_pdf {
+  cursor: pointer;
+  color: red;
+  font-size: 16px;
+  display: none;
+}
+#nbdod #Row_details .list_pdfs li:hover .remove_pdf {
+  display: inline-block;
+}
+#nbdod #Row_details .col-approve {
+  text-align: right;
+}
+#nbdod .w-25, #nbdod .w-2-8 {
+  width: 25%;
+}
+#nbdod .w-50, #nbdod .w-4-8, #nbdod .w-6-12 {
+  width: 50%;
+}
+#nbdod .w-100 {
+  width: 100%;
+}
+#nbdod .w-1-8 {
+  width: 12.5%;
+}
+#nbdod .w-3-8 {
+  width: 37.5%;
+}
+#nbdod .w-5-8 {
+  width: 62.5%;
+}
+#nbdod .w-75, #nbdod .w-6-8 {
+  width: 75%;
+}
+#nbdod .w-7-8 {
+  width: 87.5%;
+}
+#nbdod .w-16 {
+  width: 16.5%;
+}
+#nbdod .clear {
+  clear: both;
+}
+#nbdod .w-1-12 {
+  width: 8.33%;
+}
+#nbdod .w-2-12 {
+  width: 16.66%;
+}
+#nbdod .w-3-12 {
+  width: 25%;
+}
+#nbdod .w-4-12, #nbdod .w-33 {
+  width: 33.33%;
+}
+#nbdod .w-5-12 {
+  width: 41.66%;
+}
+#nbdod .w-7-12 {
+  width: 58.33%;
+}
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+#TB_iframeContent {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#TB_window {
+  width: 100% !important;
+  margin: 0 !important;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+#TB_window.thickbox-loading::before {
+  content: "Ładowanie...";
+  font-size: 24px;
+  text-align: center;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 100px;
+}
+
+#TB_ajaxContent {
+  width: 100% !important;
+  height: 100% !important;
+}
+#TB_ajaxContent .order_notes {
+  width: 80%;
+  margin: 0 auto;
+  background: #fff;
+  position: relative;
+  min-height: 150px;
+}
+#TB_ajaxContent .order_notes .delete_note {
+  display: none;
+}
+#TB_ajaxContent .order_notes li {
+  margin-bottom: 2px !important;
+}
+#TB_ajaxContent .order_notes li .note_content {
+  padding: 0 10px 0 10px;
+}
+#TB_ajaxContent .order_notes li .note_content p, #TB_ajaxContent .order_notes li .note_content abbr {
+  padding: 0 !important;
+  font-size: 10px !important;
+  display: inline-block;
+}
+#TB_ajaxContent .order_notes li .note_content p {
+  margin-left: 10px;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,168 @@
+.wp-list-table
+  margin-top: 20px
+  thead
+    td, th
+      height: 50px
+      vertical-align: middle
+  tbody
+    td, th
+      vertical-align: middle
+  tr.active
+    td, th
+      background: #fff1d4
+  .customer_note
+    width: 100%
+    font-size: 13px
+  .dashicons-warning
+    color: red
+  .dashicons
+    &.cod
+      color: #FFF
+      margin-right: 10px
+      &::before
+        background-color: orange
+    &.paid
+      color: #fff
+      margin-right: 10px
+      &::before
+        background-color: green
+    &.not-paid
+      color: #AAA
+      margin-right: 10px
+    &.cod::before, &.paid::before, &.not-paid::before
+      border-radius: 50px
+      padding: 1px
+  .filter-sort
+    .dashicons
+      display: none
+    &.active
+      &.asc
+        .sort-asc
+          display: block
+        .sort-desc
+          display: none
+      &.desc
+        .sort-asc
+          display: none
+        .sort-desc
+          display: block
+
+#Row_details
+  background-color: #fff !important
+  .col
+    display: block
+    float: left
+    padding: 0 5px 0 5px
+    &:first-of-type
+      padding-left: 0
+    &:last-child
+      padding-right: 0
+    .row
+      padding: 0
+      border: none
+  .row
+    width: 100%
+    padding: 15px
+    border-bottom: 1px solid #eee
+    &.row-declined
+      background-color: #fdeded
+    &.row-accepted
+      background-color: #eefded
+  .refunded
+    display: block
+    color: #a00
+    white-space: nowrap
+    margin-top: .5em
+    &::before
+      font-family: Dashicons
+      font-weight: 400
+      font-variant: normal
+      text-transform: none
+      -webkit-font-smoothing: antialiased
+      text-indent: 0
+      width: 100%
+      height: 100%
+      text-align: center
+      content: "\f171"
+      position: relative
+      top: auto
+      left: auto
+      margin: -1px 4px 0 0
+      vertical-align: middle
+      line-height: 1em
+  .attachment-thumbnail
+    width: 50px
+    height: 50px
+  .button
+    margin-right: 3px
+  .buttons .button
+    margin-bottom: 5px
+    .dashicons
+      margin-top: 4px
+  .button-red
+    background-color: #b12222
+    color: #fff
+    font-weight: 700
+    border-color: #b12222
+  .button-green
+    background-color: #40b25e
+    color: #fff
+    font-weight: 700
+    border-color: #40b25e
+  .button-blue
+    background-color: #2271b1
+    color: #fff
+    font-weight: 700
+    border-color: #2271b1
+  .button-gold
+    background-color: #b29640
+    color: #fff
+    font-weight: 700
+    border-color: #b29640
+  img.nbd_preview
+    vertical-align: middle
+    max-width: 120px
+    max-height: 120px
+    transition: all .1s ease-in-out
+    &:hover
+      cursor: zoom-in
+    &:active
+      cursor: zoom-out
+      transform: scale(3.5)
+      box-shadow: 0 0 10px rgba(0,0,0,0.5)
+  a.disabled
+    cursor: not-allowed
+    pointer-events: none
+  .select_pdf
+    position: absolute
+    display: none
+    border: 1px solid #aaa
+    background-color: #eee
+    padding: 10px
+    width: 200px
+    overflow-x: scroll
+    border-radius: 5px
+    box-shadow: 0 0 10px rgba(0,0,0,0.2)
+    .close
+      text-align: right
+      span
+        cursor: pointer
+    ul
+      margin: 0
+      padding: 0
+      li
+        border-bottom: 1px solid #cecece
+        padding-bottom: 5px
+      li:last-child
+        border: none !important
+        padding-bottom: 0
+  .remove_pdf
+    cursor: pointer
+    color: red
+    font-size: 16px
+    display: none
+  .list_pdfs li:hover
+    .remove_pdf
+      display: inline-block
+  .col-approve
+    text-align: right

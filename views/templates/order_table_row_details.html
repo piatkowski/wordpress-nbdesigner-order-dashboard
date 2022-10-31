@@ -1,0 +1,208 @@
+<script type="text/html" id="order_table_row_details">
+    <tr id="Row_details">
+        <td colspan="9">
+            <div class="row">
+                <div class="col w-2-8" style="width: 20%">
+                    <strong>Dane Klienta</strong>
+                    <br/>
+                    {{=billing_address}}
+                </div>
+                <div class="col w-2-8" style="width: 20%">
+                    <strong>Wysyłka</strong>
+                    <br/>
+                    {{=shipping_address}}
+                </div>
+                <div class="col" style="width:20%">
+                    <strong>Kontakt</strong>
+                    <br/>
+                    {{=email}}
+                    <br/>
+                    {{=phone}}
+                </div>
+                <div class="col" style="width:40%">
+                    <textarea class="customer_note" rows="5" readonly>{{=customer_note}}</textarea>
+                    <a href="#TB_inline?&inlineId=order-notes-thickbox" class="thickbox button button-green"
+                       id="show_order_notes" data-order-id="{{=order_id}}">Pokaż logi/notki</a>
+                    <a href="#" class="button button-blue edit-customer-note" style="float:right">Edytuj notatkę</a>
+                    <a href="#" class="button button-green save-customer-note" data-order-id="{{=order_id}}"
+                       style="float:right; display: none">Zapisz</a>
+                    <a href="#" class="button button-red cancel-customer-note" data-order-id="{{=order_id}}"
+                       style="float:right;display:none">Anuluj</a>
+                    <a href="#" class="button disabled saving-text" style="float:right;display:none">zapisuję...</a>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="row">
+                <a href="#" class="refresh-row" data-order-id="{{=order_id}}" style="display:inline-block;margin-right:20px">
+                    <span class="dashicons dashicons-image-rotate"></span>
+                </a>
+                <p style="color: red;display:inline-block">{{=payment_information}}</p>
+            </div>
+
+
+            {{ for(var i = 0; i < order_items.length; i++) { }}
+            {{ var item = order_items[i]; }}
+            <div class="row{{= item.approve_status === 'declined' ? ' row-declined' : (item.approve_status === 'approved' ? ' row-accepted' : '')}}">
+                <div class="col w-5-12">
+                    <div class="row">
+                        <div class="col w-1-12">{{=item.img}}</div>
+                        <div class="col w-50"><a href="{{=item.edit_link}}" target="_blank">{{=item.name}}</a></div>
+                        <div class="col w-2-12" style="text-align: center">{{=item.cost}}</div>
+                        <div class="col w-1-12" style="text-align: center">&times; {{=item.qty}}
+                            {{ if(item.qty_refunded) { }}
+                            <small class="refunded">{{=item.qty_refunded}}</small>
+                            {{ } }}
+                        </div>
+                        <div class="col w-2-12" style="text-align: center"><strong>{{=item.total_tax}} </strong>
+                            {{=item.discount}}
+                            {{ if(item.refund) { }}
+                            <small class="refunded">{{=item.refund}}</small>
+                            {{ } }}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="list_pdfs" data-nbd-item-key="{{=item.nbd_item_key}}">
+                            <ul>
+                                {{ if (item.nbd_date_saved) { }}
+                                {{ for(var j = 0; j < item.nbd_list_pdfs.length; j++) { var file =
+                                item.nbd_list_pdfs[j]; }}
+                                <li><a href="{{=file.url}}" download="{{=file.title}}"><span
+                                        class="dashicons dashicons-pdf"></span>{{=file.title}}</a>
+                                    ({{=file.date_modified}}) <span class="dashicons dashicons-trash remove_pdf"></span>
+                                </li>
+                                {{ } }}
+                                {{ } }}
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col w-7-12 buttons">
+                    <div class="row">
+                        <div class="col w-5-12 col-editor">
+
+                            <a href="{{=item.nbd_edit_design_link}}&amp;TB_iframe=true"
+                               class="thickbox button button-blue{{=item.nbd_item_key !== '' ? '' : ' disabled'}}">
+                                <span class="dashicons dashicons-edit"></span> Edytor
+                            </a>
+                            <a href="{{=item.nbd_edit_personalization_link}}&amp;TB_iframe=true"
+                               class="button button-blue{{=item.nbd_has_personalization ? ' thickbox' : ' disabled'}}"
+                               data-nbd-item-key="{{=item.nbd_item_key}}">
+                                <span class="dashicons dashicons-edit"></span> Personalizacja
+                            </a>
+                        </div>
+                        <div class="col w-5-12 col-personalization">
+                            <a class="button button-gold generate-project-pdf{{=item.nbd_date_saved ? '' : ' disabled'}}" data-project-url="{{=item.nbd_link}}"
+                               title="Generuj Projekt w PDF" style="min-width: 111px">
+                                <span class="dashicons dashicons-download"></span> Projekt
+                            </a>
+                            <a href="#"
+                               class="personalization generate-project-pdf button button-gold{{=item.nbd_has_personalization ? '' : ' disabled'}}"
+                               data-project-url="{{=item.nbd_link}}"
+                               title="Generuj Personalizację w PDF">
+                                <span class="dashicons dashicons-download"></span>
+                                Personalizacja
+                            </a>
+                            <br/>
+                            <a
+                                    class="button button-green generate-imposition-pdf-2{{=item.nbd_date_saved ? '' : ' disabled'}}"
+                                    title="Generuj Impozycję w PDF z projektu"
+                                    data-product-id="{{=item.product_id}}"
+                                    data-nbd-item-key="{{=item.nbd_item_key}}"
+                                    data-project-url="{{=item.nbd_link}}"
+                            ><span
+                                    class="dashicons dashicons-format-gallery"></span>
+                                Impozycja
+
+                            </a>
+                            <a
+                                    class="personalization button button-green generate-imposition-pdf-2{{=item.nbd_has_personalization ? '' : ' disabled'}}"
+                                    title="Generuj Impozycję w PDF z personalizacji"
+                                    data-product-id="{{=item.product_id}}"
+                                    data-nbd-item-key="{{=item.nbd_item_key}}"
+                                    data-project-url="{{=item.nbd_link}}"
+                                    style="min-width:140px"
+                            ><span
+                                    class="dashicons dashicons-format-gallery"></span>
+                                Impozycja
+
+                            </a>
+                            <div style="display:none/*inline-block*/">
+                                <a
+                                        class="button button-green generate-imposition-pdf"
+                                        title="Generuj Impozycję w PDF"
+                                        data-product-id="{{=item.product_id}}"
+                                        data-nbd-item-key="{{=item.nbd_item_key}}"
+                                ><span
+                                        class="dashicons dashicons-format-gallery"></span>
+                                    Impozycja
+
+                                </a>
+                                <div class="select_pdf">
+                                    <div class="close"><span class="dashicons dashicons-no"></span></div>
+                                    <ul>
+                                        {{ for(var k = 0; k < item.nbd_list_pdfs.length; k++) { var file =
+                                        item.nbd_list_pdfs[k]; }}
+                                        {{ if(file.title.substr(0,3) === 'IMP') continue; }}
+                                        <li>
+                                            <a href="#" data-input-file="{{=file.path}}">{{=file.title}}</a>
+                                        </li>
+                                        {{ } }}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col w-2-12 col-approve">
+                            <a
+                                    class="button button-green order_file_submit{{=item.nbd_date_saved ? '' : ' disabled'}}"
+                                    data-approve="accept"
+                                    data-order-id="{{=order_id}}"
+                                    data-item-id="{{=item.id}}"
+                            >
+                                Akceptuj
+                            </a><br/>
+                            <a
+                                    class="button button-red order_file_submit{{=item.nbd_date_saved ? '' : ' disabled'}}"
+                                    data-approve="decline"
+                                    data-order-id="{{=order_id}}"
+                                    data-item-id="{{=item.id}}"
+                            >
+                                Odrzuć
+                            </a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="row">
+                        {{ if (item.nbd_date_saved) { }}
+                        {{= 'Projekt zapisany: ' + item.nbd_date_saved }}
+                        {{ } else { }}
+                        <strong style="color:red">{{= 'Brak projektu' }}</strong>
+                        {{ } }}
+                        <strong class="approve_status"
+                                style="color:{{= item.approve_status === 'declined' ? 'red' : 'green'}}">{{=item.approve_status_text}}</strong>
+                    </div>
+                    <div class="row">
+                        {{= item.nbd_preview[0] ? '<img src="' + item.nbd_preview[0] + '" class="nbd_preview">' : '' }}
+                        {{= item.nbd_preview[1] ? '<img src="' + item.nbd_preview[1] + '" class="nbd_preview">' : '' }}
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            </div>
+            {{ } }}
+            <div class="row">
+                <a href="?page=nbd_order_dashboard&download_pdfs={{=order_id}}" id="download-all-pdfs" class="button button-blue download-all">Pobierz
+                    wygenerowane PDF</a>
+                <a href="#" id="download-all-pdfs-projects" class="button button-blue download-all-projects" data-order-id="{{=order_id}}">Pobierz
+                    wszystkie projekty</a>
+            </div>
+            <div id="f" class="notes" style="display:none"></div>
+        </td>
+    </tr>
+</script>

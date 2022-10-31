@@ -1,0 +1,45 @@
+<script type="text/html" id="order_table_row">
+    <tr>
+    <th class="check-column">
+        <a href="#" class="action-toggle-row" data-order-id="{{=order_id}}">
+            <span class="dashicons dashicons-plus"></span>
+        </a>
+    </th>
+        <td class="column-primary">
+            {{=order_number}}
+        </td>
+        <td>{{=date_created}}</td>
+        <td><mark class="order-status status-{{=status}}"><span>{{=status_name}}</span></mark></td>
+        <td><small>{{=user}}</small></td>
+        <td class="update-last-saved-date-{{=order_id}}">{{=last_saved_date}}</td>
+        <td>
+            <span class="dashicons dashicons-money-alt {{=payment_icon}}"></span>
+            <span class="woocommerce-Price-amount amount"><bdi>{{=total}}&nbsp;<span class="woocommerce-Price-currencySymbol">zł</span></bdi></span>
+        </td>
+        <td>{{=customer_note}}</td>
+        <td>
+            <a href="{{=edit_order_link}}" target="_blank"><span class="dashicons dashicons-search"></span></a>
+            <!-- <a href="{{=edit_order_link}}&amp;TB_iframe=true" class="thickbox"><span class="dashicons dashicons-search"></span></a> -->
+        </td>
+    </tr>
+</script>
+
+<script type="text/html" id="order_table_row_loading">
+    <tr>
+        <td colspan="9">
+            <p style="text-align:center">
+                Ładowanie...
+            </p>
+        </td>
+    </tr>
+</script>
+
+<script type="text/html" id="order_table_empty">
+    <tr>
+        <td colspan="9">
+            <p style="text-align:center">
+                Brak wyników
+            </p>
+        </td>
+    </tr>
+</script>

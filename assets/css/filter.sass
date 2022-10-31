@@ -1,0 +1,53 @@
+.filters
+  max-width: 1000px
+  label
+    span
+      font-size: 11px
+      font-weight: 700
+  input, select
+    width: 100%
+    display: block
+    max-width: none
+  .col
+    display: block
+    float: left
+    padding: 0 5px 0 5px
+    &:first-of-type
+      padding-left: 0
+    &:last-child
+      padding-right: 0
+  .row
+    width: 100%
+    padding: 5px 0 5px 0
+    &:after
+      content: ""
+      display: table
+      clear: both
+  .nav
+    margin-top: 19px
+    .prev
+      float: left
+      width: 15%
+    .next
+      float: right
+      width: 15%
+    .text
+      float: left
+      display: block
+      text-align: center
+      width: 70%
+      height: 30px
+      line-height: 30px
+      font-weight: 700
+  .filter-button
+    display: block
+    width: 100%
+    margin-top: 19px
+    .dashicons
+      margin-top: 4px
+      transform-origin: center
+    &[disabled]
+      .dashicons-update
+        -webkit-animation:  spin 4s linear infinite
+        -moz-animation: spin 4s linear infinite
+        animation:  spin 4s linear infinite
